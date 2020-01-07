@@ -8,7 +8,7 @@ window.addEventListener('load',()=>{
 	const actualTemp = document.querySelector('.actual-temp');
 	const tempIcon = document.querySelector('.temp-icon');
 	const tempDescription = document.querySelector('.temp-description');
-
+	const actualTime = document.querySelector('.actual-time');
 	// declare our global vars
 	let latitude;
 	let longitude;
@@ -44,7 +44,7 @@ window.addEventListener('load',()=>{
 
 			// we can access the data we want from our api
 			// using object destructuring we import the data to our webapp
-			const {summary,icon,temperature} = data.currently;
+			const {summary,icon,temperature,time} = data.currently;
 			const timeZone = data.timezone;
 
 			// modify our DOM elements
@@ -53,6 +53,8 @@ window.addEventListener('load',()=>{
 			actualTemp.textContent = tempModified;
 			tempDescription.textContent = summary;
 
+			formattedTime = moment(time).format('LT');
+			actualTime.textContent = formattedTime;
 			toCelsius(temperature);
 			configIcon(icon,document.querySelector('.icon'));
 		});
