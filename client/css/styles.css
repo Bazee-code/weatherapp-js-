@@ -1,0 +1,14 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#home-section{
+	height: 80vh;
+}
+
+h2:hover{
+	cursor: pointer;
+	font-size: 80px;
+}
